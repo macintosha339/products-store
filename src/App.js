@@ -1,13 +1,17 @@
-import Header from './components/Header'
-import Products from './components/Products'
-import "antd/dist/antd.css";
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Main from './pages/Main'
+import ProductPage from "./pages/ProductPage";
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <Products />
-    </div>
+    <Routes>
+      <Route exact path={"/"} element={<Main/>}/>
+      <Route
+        path="/products/:id"
+        element={<ProductPage />}
+      />
+    </Routes>
   );
 }
 
