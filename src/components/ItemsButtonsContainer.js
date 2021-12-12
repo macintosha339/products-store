@@ -2,7 +2,7 @@ import React from 'react'
 import { Radio } from 'antd';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchFewProducts, fetchAllProducts, fetchMoreProducts } from '../store/actions/fetchProductsActions';
+import { fetchProducts } from '../store/actions/fetchProductsActions';
 
 export default function ItemsButtonsContainer () {
     const [amount, setAmount] = useState('8 items');
@@ -11,11 +11,11 @@ export default function ItemsButtonsContainer () {
     const handleAmountChange = e => {
         setAmount(e.target.value)
         if(e.target.value === '8 items') {
-            dispatch(fetchFewProducts())
+            dispatch(fetchProducts('?limit=8'))
         } else if(e.target.value === '16 items') {
-            dispatch(fetchMoreProducts())
+            dispatch(fetchProducts('?limit=16'))
         } else if(e.target.value === 'all') {
-            dispatch(fetchAllProducts())
+            dispatch(fetchProducts(''))
         }
     }
     return (

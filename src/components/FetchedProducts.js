@@ -1,7 +1,7 @@
 import React from 'react'
 import { List, Card, Spin, Image } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchFewProducts } from '../store/actions/fetchProductsActions';
+import { fetchProducts } from '../store/actions/fetchProductsActions';
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 import { Link } from 'react-router-dom';
@@ -16,7 +16,7 @@ export default function FetchedProducts() {
     let url = useLocation();
     const dispatch = useDispatch()
     useEffect(() => {
-        dispatch(fetchFewProducts())
+        dispatch(fetchProducts('?limit=8'))
     }, []);
     const products = useSelector(state => state.products.fetchedProducts)
     const loading = useSelector(state => state.app.loading)
