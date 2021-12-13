@@ -36,7 +36,7 @@ export default function Product() {
                     <Descriptions.Item label="Title">{product.title}</Descriptions.Item>
                     <Descriptions.Item label="Category">{product.category}</Descriptions.Item>
                     <Descriptions.Item label="Price">{product.price} $</Descriptions.Item>
-                    <Descriptions.Item label="Rating">{product.rating.rate} stars</Descriptions.Item>
+                    <Descriptions.Item label="Rating">{product.rating?.rate} stars</Descriptions.Item>
                 </Descriptions>
                 <Meta style={{textAlign: 'left'}} description={product.description} />
             </Card>
