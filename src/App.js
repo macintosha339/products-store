@@ -3,6 +3,7 @@ import { Routes, Route, Navigate } from "react-router-dom";
 import FormAddPage from "./pages/FormAddPage";
 import Main from './pages/Main'
 import ProductPage from "./pages/ProductPage";
+import EditProductForm from "./pages/EditProductForm";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       />
       <Route path={"/formAdd"} element={<FormAddPage />} />
       <Route path="/" element={<Navigate replace to="/products" />} />
+      <Route path="/editProduct" element={<EditProductForm />}/>
     </Routes>
   );
 }

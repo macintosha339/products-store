@@ -1,4 +1,4 @@
-import { ADD_SINGLE_PRODUCT } from "../types"
+import { ADD_PUBLISHED_PRODUCT, ADD_SINGLE_PRODUCT } from "../types"
 
 export const addSingleProduct = (title, price, description, published) => {
     return async dispatch => {
@@ -14,17 +14,28 @@ export const addSingleProduct = (title, price, description, published) => {
             )
         })
         const json = await response.json()
-        setTimeout(() => {
-            dispatch({ 
-                type: ADD_SINGLE_PRODUCT, 
+        dispatch({ 
+            type: ADD_SINGLE_PRODUCT, 
+            payload: {
+                id: json.id,
+                title: title,
+                price: price,
+                description: description,
+                published: published ? "+" : '',
+                date: Date.now()
+            } })
+        if(published) {
+            dispatch({
+                type: ADD_PUBLISHED_PRODUCT,
                 payload: {
                     id: json.id,
                     title: title,
                     price: price,
                     description: description,
-                    published: published,
+                    published: published ? "+" : '',
                     date: Date.now()
-                } })
-        }, 500)
+                }
+            })
+        }
     }
 }

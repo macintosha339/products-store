@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form, Input, Button, InputNumber, Switch } from 'antd'
+import { Form, Input, Button, InputNumber, Switch, Divider } from 'antd'
 import { useDispatch } from 'react-redux';
 import { addSingleProduct } from '../store/actions/addSingleProductActions';
 import { Link } from 'react-router-dom';
@@ -19,6 +19,7 @@ function FormAddBlock() {
   };
   return (
     <>
+      <Divider orientation='left'>Form for creating product</Divider>
       <Form
         labelCol={{
           span: 4,
