@@ -43,7 +43,7 @@ export default function FetchedProducts() {
                 dataSource={products}
                 renderItem={item => (
                     <List.Item width={300}>
-                        <Card size='small' title={item.title} extra={<Link to={`${url.pathname}products/${item.id}`}>More</Link>}>
+                        <Card size='small' title={item.title} extra={<Link to={`${url.pathname}/${item.id}`}>More</Link>}>
                             <div style={cardsStyle}>
                                 <Image
                                     height={200}

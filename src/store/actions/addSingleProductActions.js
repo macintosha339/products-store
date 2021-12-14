@@ -14,6 +14,7 @@ export const addSingleProduct = (title, price, description, published) => {
             )
         })
         const json = await response.json()
+        const dateNow = Date.now()
         dispatch({ 
             type: ADD_SINGLE_PRODUCT, 
             payload: {
@@ -22,7 +23,7 @@ export const addSingleProduct = (title, price, description, published) => {
                 price: price,
                 description: description,
                 published: published ? "+" : '',
-                date: Date.now()
+                date: dateNow
             } })
         if(published) {
             dispatch({
@@ -33,7 +34,7 @@ export const addSingleProduct = (title, price, description, published) => {
                     price: price,
                     description: description,
                     published: published ? "+" : '',
-                    date: Date.now()
+                    date: dateNow
                 }
             })
         }

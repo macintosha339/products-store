@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchSingleProduct } from '../store/actions/fetchSingleProductActions';
-import { Spin, Image, Card, Descriptions } from 'antd';
+import { Spin, Image, Card, Descriptions, Button } from 'antd';
+import { Link } from 'react-router-dom';
 
 const { Meta } = Card
 
@@ -15,7 +16,6 @@ export default function Product() {
     }, [])
     const product = useSelector(state => state.products.productInfo)
     const loading = useSelector(state => state.app.loading)
-    console.log(product)
     let cardStyle = {
         margin: '0 auto',
         marginTop: '16px',
@@ -27,6 +27,9 @@ export default function Product() {
     }
     return (
         <div style={cardStyle}>
+            <Link to={'/products'}>
+                <Button type='dashed' style={{marginBottom: '16px'}}>Back to products</Button>
+            </Link>
             <Card
                 hoverable
                 style={{ width: 600 }}
